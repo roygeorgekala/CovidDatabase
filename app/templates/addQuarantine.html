@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Quarantine Info</title>
+	<link href = "{% static 'css/addQuarantine.css' %}" type = "text/css" rel = "stylesheet" />
+	</head>
+<body>
+	<div class="container">
+      	<div class="Quarantine">
+      		<h2>Quarantine information</h2>
+      		<form method="POST" enctype="multipart/form-data" action="{% url 'app:createQuarantineInfo' %}">
+          {% csrf_token %}
+      	      <label for="patient_id">Patient ID:</label>
+              <input type="text" id="patient_id" name="patient_id" ><br><br>
+              <label for="address">Address:</label>
+              <input type="text" id="address" name="address" maxlength="256"><br><br>
+              <label for="test_status">Test Status:</label>
+              <input type="text" id="test_status" name="test_status" maxlength="3"><br><br>
+              <button type="submit">Submit</button>
+      		</form>
+					<button id="home">Home</button>
+      	</div>
+      </div>
+      <hr>
+
+      {% if error %}
+      <h2>{{error}}</h2>
+      {%endif%}
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+			<script>
+			$("#home").click(function() {
+			 window.location.href = 'http://127.0.0.1:1234/';
+		 })
+		 </script>
+</body>
+</html>

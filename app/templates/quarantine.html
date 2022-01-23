@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quarantine Info</title>
+	<link href = "{% static 'css/quarantine.css' %}" type = "text/css" rel = "stylesheet" />
+</head>
+<body>
+      <div class="container">
+      	<div class="quarantine">
+      		<h2>quarantine information</h2>
+      			<label for="Pid">Enter patient ID:</label>
+                <input type="text" id="Pid" name="Pid" ><br><br>
+                <button id="search">Search</button>
+								<button id="addQuarantine">Add Quarantine Information</button>
+								<button id="home">Home</button>
+
+      	</div>
+
+
+      </div>
+     <hr>
+     {% if details %}
+       <h3>Patient ID: {{details.patient_id}}</h3>
+       <h3>address: {{details.address}}</h3>
+       <h3>test_status: {{details.test_status}}</h3>
+     {% endif %}
+		 {% if error %}
+       <h3>{{error}}</h3>
+     {% endif %}
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script  type="text/javascript">
+       $("#search").click(function() {
+         var id = document.getElementById("Pid").value;
+         console.log(id);
+         window.location.href = 'http://127.0.0.1:1234/get-quarantine/'+id;
+       })
+			 $("#home").click(function() {
+	 			window.location.href = 'http://127.0.0.1:1234/';
+	 		})
+			$("#addQuarantine").click(function() {
+			 window.location.href = 'http://127.0.0.1:1234/add-quarantine';
+		 })
+     </script>
+</body>
+</html>

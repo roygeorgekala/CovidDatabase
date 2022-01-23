@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hospital Information</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/hospital.css' %}">
+	<div class="container">
+      	<div class="hospital">
+      		<h2>Hospital Information</h2>
+
+      			<label for="Hid">Enter Hospital ID:</label>
+            <input type="text" id="Hid" name="Hid" ><br><br>
+            <button id="Search">Search</button>
+            <!--<button id="addHospital">Add New Hospital</button> -->
+            <button id="home">Home</button>
+  	</div>
+  </div>
+ <hr>
+</head>
+<body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+	$("#home").click(function() {
+	 window.location.href = 'http://127.0.0.1:1234/';
+ })
+ $("#Search").click(function() {
+	 var id = document.getElementById("Hid").value;
+	 window.location.href = 'http://127.0.0.1:1234/get-hospital/'+id;
+ })
+ </script>
+
+ {% if details %}
+ <h3>Hospital ID: {{details.id}}</h3>
+ <h3>Hospital Name: {{details.name}}</h3>
+ <h3>Hospital pincode: {{details.pincode}}</h3>
+ <h3>Patient Count: {{details.patient_count}}</h3>
+ {% endif %}
+ {% if error %}
+	 <h2>{{error}}</h2>
+ {% endif %}
+</body>
+</html>

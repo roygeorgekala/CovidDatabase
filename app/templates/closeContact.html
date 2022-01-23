@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Close Contact Information</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/closeContact.css' %}">
+	<div class="container">
+      	<div class="patient">
+      		<h2>Close Contact Information</h2>
+      			<label for="Cid">Enter ID:</label>
+            <input type="text" id="Cid" name="Cid" ><br><br>
+            <button id="search">Search</button>
+						<button id="addCloseContact">Add New Close Contact</button>
+						<button id="home">Home</button>
+  	</div>
+
+
+  </div>
+ <hr>
+</head>
+<body>
+	{% if details %}
+	  <h3>Patient ID: {{details.patient_id}}</h3>
+		<h3>Contact Name: {{details.name}}</h3>
+		<h3>Contact ID: {{details.id}}</h3>
+		<h3>Contact Relation: {{details.relation}}</h3>
+		<h3>Contact Age{{details.age}}</h3>
+		<h3>Contact gender: {{details.gender}}</h3>
+		<h3>Contact address: {{details.address}}</h3>
+		<h3>Contact test_status: {{details.test_status}}</h3>
+	{% endif %}
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script  type="text/javascript">
+		$("#search").click(function() {
+			var id = document.getElementById("Cid").value;
+			window.location.href = 'http://127.0.0.1:1234/get-closeContact/'+id;
+		})
+		$("#home").click(function() {
+		 window.location.href = 'http://127.0.0.1:1234/';
+	 })
+	 $("#addCloseContact").click(function() {
+		 console.log("add patient");
+		 window.location.href = 'http://127.0.0.1:1234/add-close-contact';
+	 })
+	 </script>
+</body>
+</html>

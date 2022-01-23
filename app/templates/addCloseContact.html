@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Close Contact</title>
+	<link href = "{% static 'css/addCloseContact.css' %}" type = "text/css" rel = "stylesheet" />
+	</head>
+<body>
+	<div class="container">
+      	<div class="Close">
+      		<h2>Close Contact information</h2>
+      		<form enctype="multipart/form-data" method="post" action="{% url 'app:createCloseContact' %}">
+						{% csrf_token %}
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" maxlength="256"><br><br>
+              <label for="patient_id">Patient ID:</label>
+              <input type="text" id="patient_id" name="patient_id" ><br><br>
+              <label for="relation">Relation:</label>
+              <input type="text" id="relation" name="relation" maxlength="256"><br><br>
+              <label for="age">Age:</label>
+              <input type="number" id="age" name="age"><br><br>
+
+              <label for="gender">Gender:</label>
+              <input type="text" id="gender" name="gender" maxlength="15"><br><br>
+              <label for="address">Address:</label>
+              <input type="text" id="address" name="address" maxlength="256"><br><br>
+
+              <label for="test_status">Test Status:</label>
+              <input type="text" id="test_status" name="test_status" maxlength="3"><br><br>
+
+              <button type="submit">Submit</button>
+          </form>
+					<button id="home">Home</button>
+
+    </div>
+
+</div>
+<hr>
+
+{% if error %}
+<h2>{{error}}</h2>
+{% endif %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script  type="text/javascript">
+	$("#home").click(function() {
+	 window.location.href = 'http://127.0.0.1:1234/';
+ })
+
+ </script>
+
+</body>

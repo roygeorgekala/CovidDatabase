@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CoVID 19 Database</title>
+    <link
+      href="{% static 'css/index.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>A Complete DataBase For Corona Cases In Banglore</h1>
+    </div>
+    <div class="container">
+      <div class="info">
+        <p>
+          This is a database for corona cases in the city of Bangalore. Here,
+          you can enter in the patient quarantine information. Also view the
+          information of the patients suffering from covid19, hospitals death
+          rate and number of cases in an area based on the pin code.
+        </p>
+      </div>
+    </div>
+    <hr class="hrstyle" />
+    <div class="container">
+      <div class="tables">
+        <ul>
+          <li><button id="quarantine">Quarantine information</button></li>
+          <li><button id="patient">Patient information</button></li>
+          <li><button id="closeContact">Close Contact information</button></li>
+          <li><button id="hospital">Hospital information</button></li>
+          <li><button id="locality">Locality information</button></li>
+        </ul>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#patient").click(function () {
+        window.location.href = "http://127.0.0.1:1234/patients";
+      });
+      $("#quarantine").click(function () {
+        window.location.href = "http://127.0.0.1:1234/quarantine";
+      });
+      $("#closeContact").click(function () {
+        window.location.href = "http://127.0.0.1:1234/close-contact";
+      });
+      $("#hospital").click(function () {
+        window.location.href = "http://127.0.0.1:1234/hospital";
+      });
+      $("#locality").click(function () {
+        window.location.href = "http://127.0.0.1:1234/locality";
+      });
+    </script>
+
+    {% if data %}
+    <h2>{{data}}</h2>
+    {% endif %}
+  </body>
+</html>

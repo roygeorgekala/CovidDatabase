@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locality Information</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/locality.css' %}">
+	<div class="container">
+      	<div class="locality">
+      		<h2>Locality Information</h2>
+      			<label for="pincode">Enter Pin Code:</label>
+            <input type="text" id="pincode" name="pincode" ><br><br>
+            <button id="search">Search</button>
+            <button id="home">Home</button>
+  	</div>
+
+
+  </div>
+
+
+
+ <hr>
+</head>
+<body>
+  {% if details %}
+		<h3>Pincode: {{details.pincode}} <h3>
+		<h3>Hospital Count: {{details.hospital_count}} <h3>
+		<h3>Case Count: {{details.case_count}} <h3>
+	{% endif %}
+	{% if error %}
+		<h2>{{error}}</h2>
+	{% endif %}
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+  $("#home").click(function() {
+	 window.location.href = 'http://127.0.0.1:1234/';
+ })
+ $("#search").click(function() {
+	 var pincode = document.getElementById("pincode").value;
+	 window.location.href = 'http://127.0.0.1:1234/get-locality/'+pincode;
+ })
+  </script>
+</body>
+</html>
