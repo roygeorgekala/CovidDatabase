@@ -1,0 +1,29 @@
+.container
+{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    background-image: url("https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?size=626&ext=jpg&ga=GA1.2.390328902.1607783727");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    background-size: cover;
+
+}
+hr.hrstyle {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+label{
+            width: 150px;
+            display: inline-block;
+}
